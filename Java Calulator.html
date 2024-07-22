@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Dynamic Calculator</title>
+        <style>
+            .box {
+                width: 310px;
+                height: 490px;
+                border: 1px solid black;
+                border-radius: 6px;
+                margin-left: 580px;
+                margin-top: 100px;
+            }
+            .a {
+                width: 285px;
+                height: 255px;
+                float: left;
+                padding: 2px;
+                margin: 10px;
+            }
+            .b {
+                width: 270px;
+                height: 61px;
+                float: left;
+                margin-left: 19px;
+                margin-top: 15px;
+            }
+            .c {
+                width: 270px;
+                height: 45px;
+                float: left;
+                margin-left: 19px;
+                margin-top: 10px;
+            }
+            .bg {
+                background-color: rgb(243, 243, 243);
+            }
+            .bg:hover {
+                background-color: rgb(231, 231, 231);
+            }
+            .bg2 {
+                background-color: rgb(214, 214, 214);
+            }
+            .bg2:hover {
+                background-color: rgb(202, 201, 201) ;
+            }
+            input {
+                height: 60px;
+                width: 60px;
+                margin-bottom: 8px;
+                margin-left: 8px;
+                border-radius: 3px;
+                font-size: 20px;
+                border: none;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div class="box">
+            <div class="b">
+                <input type="text" id="input" name="input" style="width: 252px; height: 55px; font-size: 20px; border: 1px solid black; padding-left: 10px;" readonly><br><br>
+            </div>
+
+            <div class="c">
+                <input type="text" id="result" name="result" style="width: 263px; height: 40px; border: 1px solid white; padding-left: 10px;" readonly>
+            </div>
+
+            <div class="a" id="buttons">
+                <input type="button" class="bg2" value="(" onclick="input('(')">
+                <input type="button" class="bg2" value=")" onclick="input(')')">
+                <input type="button" class="bg2" value="%" onclick="input('%')">
+                <input type="button" class="bg2" value="CLR" onclick="clr()"><br>
+                <input type="button" class="bg" value="7" onclick="input('7')">
+                <input type="button" class="bg" value="8" onclick="input('8')">
+                <input type="button" class="bg" value="9" onclick="input('9')">
+                <input type="button" class="bg2" value="/" onclick="input('/')"><br>
+                <input type="button" class="bg" value="4" onclick="input('4')">
+                <input type="button" class="bg" value="5" onclick="input('5')">
+                <input type="button" class="bg" value="6" onclick="input('6')">
+                <input type="button" class="bg2" value="*" onclick="input('*')"><br>
+                <input type="button" class="bg" value="1" onclick="input('1')">
+                <input type="button" class="bg" value="2" onclick="input('2')">
+                <input type="button" class="bg" value="3" onclick="input('3')">
+                <input type="button" class="bg2" value="-" onclick="input('-')"><br>
+                <input type="button" class="bg" value="0" onclick="input('0')">
+                <input type="button" class="bg" value="." onclick="input('.')">
+                <input type="button" class="bg2" value="=" id="equals" onclick="calculate()">
+                <input type="button" class="bg2" value="+" onclick="input('+')">
+            </div>
+        </div>
+
+        <script>
+            function input(value) {
+                document.getElementById("input").value += value;
+            }
+
+            function clr() {
+                document.getElementById("input").value = '';
+                document.getElementById("result").value = '';
+            }
+
+            function calculate() {
+                let result = eval(document.getElementById("input").value);
+                document.getElementById("result").value = result;
+            }
+        </script>
+    </body>
+</html>
